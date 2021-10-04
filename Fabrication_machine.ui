@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1551</width>
-    <height>927</height>
+    <width>1552</width>
+    <height>931</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -220,7 +220,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -270,7 +270,7 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2">
+    <widget class="QWidget" name="tab_6">
      <attribute name="title">
       <string>Realtime process structure</string>
      </attribute>
@@ -501,13 +501,23 @@
      <string>Home</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>780</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1551</width>
+     <width>1552</width>
      <height>22</height>
     </rect>
    </property>

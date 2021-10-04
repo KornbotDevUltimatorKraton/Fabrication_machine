@@ -4,20 +4,32 @@
 #Project:Auracore color controller GUI 
 #release date:25/2/2020
 from PyQt5 import QtCore, QtWidgets, uic,Qt,QtGui 
-from PyQt5.QtWidgets import QApplication,QTreeView,QDirModel,QFileSystemModel,QVBoxLayout, QTreeWidget,QStyledItemDelegate, QTreeWidgetItem,QLabel,QGridLayout,QLineEdit,QDial
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QApplication,QTreeView,QDirModel,QFileSystemModel,QVBoxLayout, QTreeWidget,QStyledItemDelegate, QTreeWidgetItem,QLabel,QGridLayout,QLineEdit,QDial,QTreeWidget, QTreeWidgetItem, QApplication,QWidget,QTabWidget
 from PyQt5.QtGui import QPixmap,QIcon,QImage,QPalette,QBrush
 from pyqtgraph.Qt import QtCore, QtGui   #PyQt graph to control the model grphic loaded  
 import pyqtgraph.opengl as gl
+from qtpy import QtWidgets
+import numpy as np
+import pyvista as pv
+from pyvistaqt import QtInteractor, MainWindow
 import csv 
 import os 
 import sys 
+import cv2 
+import pyfirmata  #Pyfirmata for serial protocol 
 class MainWindow(QtWidgets.QMainWindow):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self,parent=None,show=True, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
-
+        QtWidgets.QMainWindow.__init__(self, parent)
+        QWidget.__init__(self)
         #Load the UI Page
+        self.setWindowIcon(QtGui.QIcon('/home/kornbotdev/Fab_machine/apple-touch-icon.png'))
+        # set the title
+        self.setWindowTitle("Icon")
+  
+        # setting  the geometry of window
+        self.setGeometry(0, 0, 400, 300)
         uic.loadUi('Fabrication_machine.ui', self)
         self.setWindowTitle('Fabrication Machine')
         p = self.palette()
@@ -28,6 +40,7 @@ class MainWindow(QtWidgets.QMainWindow):
         palette = QPalette()
         #palette.setBrush(QPalette.Window, QBrush(oImage))
         #self.setPalette(palette)
+       
         #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
            # Dial set control rotation degree of the pick and place for settings 
         self.dial.setMinimum(0)
@@ -61,6 +74,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.verticalSlider.setMaximum(100)
         self.verticalSlider.setValue(0)
         self.verticalSlider.valueChanged.connect(self.Z_axis_slider)
+       
+        #Tab widget programming  
+       
     def Rot_motion(self): 
         print("Degree rotation:= %i\tdegree" % (self.dial.value())) # getting the number to calculate to degree rotation of the pick and place machine 
         self.lcdNumber_6.display(self.dial.value())
@@ -88,9 +104,36 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Z_axis:= %f" %(self.verticalSlider.value()))
         self.lcdNumber_3.display(self.verticalSlider.value()) # Processing timing 
         self.lcdNumber_3.setStyleSheet("""QLCDNumber { background-color: black;}""")
+class Compoent_id_position(QWidget):
+        def __init__(self):
+            super().__init__() 
+            self.w = QWidget() 
+            self.w.resize(351,951)
+            l1 = QTreeWidgetItem(["String A", "String B", "String C"])
+            l2 = QTreeWidgetItem(["String AA", "String BB", "String CC"])
+
+            for i in range(3):
+               l1_child = QTreeWidgetItem(["Child A" + str(i), "Child B" + str(i), "Child C" + str(i)])
+               l1.addChild(l1_child)
+
+            for j in range(2):
+                l2_child = QTreeWidgetItem(["Child AA" + str(j), "Child BB" + str(j), "Child CC" + str(j)])
+                l2.addChild(l2_child)
+            self.treeWidget = QTreeWidget(self.w)
+            self.treeWidget.resize(351, 951)
+            self.treeWidget.setColumnCount(3)
+            self.treeWidget.setHeaderLabels(["Components", "ID", "Positioning"])
+            self.treeWidget.addTopLevelItem(l1)
+            self.treeWidget.addTopLevelItem(l2)
+            self.tab_2 = QWidget()
+            self.tab_2.layout.addWidget(self.treeWidget)
+            self.tab_2.setLayout(self.tab_2.layout)
+            #self.tab_2.addTab(Compoent_id_position(), "Realtime process structures")
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MainWindow()
+
     main.show()
     sys.exit(app.exec_())
 
