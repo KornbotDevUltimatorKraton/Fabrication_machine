@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1552</width>
+    <width>1553</width>
     <height>931</height>
    </rect>
   </property>
@@ -213,14 +213,14 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>610</x>
       <y>0</y>
-      <width>911</width>
+      <width>941</width>
       <height>881</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -231,8 +231,239 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>911</width>
-        <height>861</height>
+        <width>941</width>
+        <height>651</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_5">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_6">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>660</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Control sector angle</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>660</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Base angle X</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>660</y>
+        <width>91</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Base angle Y</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_7">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_8">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_9">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_7">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_8">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_9">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>660</y>
+        <width>101</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Shoulder angle</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>660</y>
+        <width>131</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Rotate wrist angle</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>660</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Wrist angle</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_10">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_11">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_12">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDial" name="dial_10">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>690</y>
+        <width>141</width>
+        <height>101</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>660</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hand angle</string>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="lcdNumber_13">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>800</y>
+        <width>64</width>
+        <height>23</height>
        </rect>
       </property>
      </widget>
@@ -246,7 +477,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>901</width>
+        <width>941</width>
         <height>851</height>
        </rect>
       </property>
@@ -304,7 +535,7 @@
        <rect>
         <x>350</x>
         <y>20</y>
-        <width>561</width>
+        <width>591</width>
         <height>831</height>
        </rect>
       </property>
@@ -332,7 +563,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>911</width>
+        <width>941</width>
         <height>851</height>
        </rect>
       </property>
@@ -501,14 +732,53 @@
      <string>Home</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox">
+   <widget class="QLabel" name="label_14">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>780</y>
-      <width>111</width>
-      <height>25</height>
+      <x>190</x>
+      <y>800</y>
+      <width>131</width>
+      <height>17</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>Pick and place </string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_7">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>800</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>830</y>
+      <width>101</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Assembly arm </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>800</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PCB width input</string>
     </property>
    </widget>
   </widget>
@@ -517,7 +787,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1552</width>
+     <width>1553</width>
      <height>22</height>
     </rect>
    </property>

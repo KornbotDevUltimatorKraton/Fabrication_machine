@@ -4,7 +4,7 @@
 #Project:Auracore color controller GUI 
 #release date:25/2/2020
 from PyQt5 import QtCore, QtWidgets, uic,Qt,QtGui 
-from PyQt5.QtWidgets import QApplication,QTreeView,QDirModel,QFileSystemModel,QVBoxLayout, QTreeWidget,QStyledItemDelegate, QTreeWidgetItem,QLabel,QGridLayout,QLineEdit,QDial,QTreeWidget, QTreeWidgetItem, QApplication,QWidget,QTabWidget
+from PyQt5.QtWidgets import QApplication,QTreeView,QDirModel,QFileSystemModel,QVBoxLayout, QTreeWidget,QStyledItemDelegate, QTreeWidgetItem,QLabel,QGridLayout,QLineEdit,QDial,QTreeWidget, QTreeWidgetItem, QApplication,QWidget,QTabWidget,QComboBox
 from PyQt5.QtGui import QPixmap,QIcon,QImage,QPalette,QBrush
 from pyqtgraph.Qt import QtCore, QtGui   #PyQt graph to control the model grphic loaded  
 import pyqtgraph.opengl as gl
@@ -17,10 +17,14 @@ import os
 import sys 
 import cv2 
 import pyfirmata  #Pyfirmata for serial protocol 
+seriallist  = os.listdir("/sys/class/tty") #Getting the serial list directory
+serialmem = []
+serialmem1 = [] 
 class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self,parent=None,show=True, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
+    
         QtWidgets.QMainWindow.__init__(self, parent)
         QWidget.__init__(self)
         #Load the UI Page
@@ -74,9 +78,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.verticalSlider.setMaximum(100)
         self.verticalSlider.setValue(0)
         self.verticalSlider.valueChanged.connect(self.Z_axis_slider)
-       
-        #Tab widget programming  
-       
+        
+        #combobox 1 
+        self.comboBox = QComboBox(self) #Getting the combobox function to work 
+        self.comboBox.addItem("Non-serial")
+        for i in range(0,len(seriallist)):
+              if len(str(seriallist[i]).split("USB")) >= 2:
+                        serialmem.append(str(seriallist[i])) 
+              if len(str(seriallist[i]).split("ACM")) >=2:
+                        serialmem.append(str(seriallist[i])) 
+        self.comboBox.addItems(serialmem)   #Add list of serial port 
+        self.comboBox.activated[str].connect(self.Serialfunc)      
+        self.comboBox.move(60, 810)
+        #Combobox 2 
+        self.comboBox_2 = QComboBox(self) #Getting the combobox function to work 
+        self.comboBox_2.addItem("Non-serial")
+        for i in range(0,len(seriallist)):
+              if len(str(seriallist[i]).split("USB")) >= 2:
+                        serialmem1.append(str(seriallist[i])) 
+              if len(str(seriallist[i]).split("ACM")) >=2:
+                        serialmem1.append(str(seriallist[i])) 
+        self.comboBox_2.addItems(serialmem1)   #Add list of serial port 
+        self.comboBox_2.activated[str].connect(self.Serialfunc2)      
+        self.comboBox_2.move(60, 850)
     def Rot_motion(self): 
         print("Degree rotation:= %i\tdegree" % (self.dial.value())) # getting the number to calculate to degree rotation of the pick and place machine 
         self.lcdNumber_6.display(self.dial.value())
@@ -104,6 +128,10 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Z_axis:= %f" %(self.verticalSlider.value()))
         self.lcdNumber_3.display(self.verticalSlider.value()) # Processing timing 
         self.lcdNumber_3.setStyleSheet("""QLCDNumber { background-color: black;}""")
+    def Serialfunc(self,text):
+              print("serial_selected",text)
+    def Serialfunc2(self,text2):
+              print("serial_selected",text2)
 class Compoent_id_position(QWidget):
         def __init__(self):
             super().__init__() 
